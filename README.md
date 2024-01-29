@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Turn-Based RPG Game
 
 Welcome to my turn-based RPG game project! This game is a work in progress and currently focuses on the backend logic of the battle system.
@@ -38,7 +37,3 @@ Feel free to explore the code, contribute, or provide feedback. Contributions ar
 
 Enjoy the game development journey!
 
-=======
-# JavaRPGGame
-Turn-based RPG game logic implemented in Java. This project currently focuses on the backend game mechanics, including battle sequences and commands. The code, residing in a framework, is a work in progress and has been adjusted for debugging purposes. Please note that the stat values, damage calculations, and other mechanics are NOT final. 
->>>>>>> fdbb5c8559eff31655430245ab9e8a4317ab066b
