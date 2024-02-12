@@ -12,12 +12,13 @@ public class Main {
         Mage mage = new Mage("Mage", 1);
         Scanner scanner = new Scanner(System.in);
         boolean battleEnded = false;
+        PauseMenu pauseMenu = new PauseMenu(itemInventory, partyMembers, null);
 
         
         
 
         
-
+        
         while (Battle.loop_terminate == false && warrior.getLevel() < 10) {
 
             Enemy enemy = EnemyRandomizer.randomizeEnemy(warrior.getLevel());
