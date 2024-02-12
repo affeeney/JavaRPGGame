@@ -8,6 +8,7 @@ import java.util.Random;
 public class Battle {
     
     public static boolean loop_terminate = false;
+    public static boolean inCombat = false;
 
     public static boolean startBattle(Warrior warrior, Mage mage, Scanner scanner, ItemInventory itemInventory) {
 
@@ -27,6 +28,7 @@ public class Battle {
         
         boolean isFirstTurn = true;
 
+        inCombat = true;
 
         while (loop_terminate == false && warrior.getHealth() > 0 && enemy.getHealth() > 0) {
             System.out.println("----------------------------------");
@@ -212,6 +214,9 @@ public class Battle {
 
             }
         }
+
+        inCombat = false;
+
         return false;
     }        
 }            
