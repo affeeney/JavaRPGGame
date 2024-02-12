@@ -56,6 +56,14 @@ public class PauseMenu {
                 System.out.println("Invalid choice.");
         }
     }
+
+    //METHOD TO CHECK IF PAUSE MENU IS REQUESTED
+    public static boolean isPauseMenuRequested(Scanner scanner) {
+        System.out.println("Press 'P' to access the Pause Menu or any other key to continue:");
+        String userInput = scanner.nextLine().toUpperCase();
+        return userInput.equals("P");
+    }
+
     // PAUSEMENU ITEMINVENTORY SUB-SCREEN
     public void showItemInventory(PartyMembers party) {
         
