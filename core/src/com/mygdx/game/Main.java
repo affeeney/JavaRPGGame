@@ -6,14 +6,15 @@ import com.mygdx.game.Battle;
 
 public class Main {
     public static void main(String[] args) {
-        // Create objects for user input
+        // CREATE INSTANCE OF CHARACTER/ITEM/INVENTORY OBJECTS.
+        AvailableCharacters availableCharacters = new AvailableCharacters();
         PartyMembers partyMembers = new PartyMembers();
         ItemInventory itemInventory = new ItemInventory();
         Warrior warrior = new Warrior("Hero", 1);
         Mage mage = new Mage("Mage", 1);
         Scanner scanner = new Scanner(System.in);
         boolean battleEnded = false;
-        PauseMenu pauseMenu = new PauseMenu(itemInventory, partyMembers, null);
+        PauseMenu pauseMenu = new PauseMenu(itemInventory, partyMembers, availableCharacters);
 
         
         
@@ -21,7 +22,7 @@ public class Main {
         
         
         while (true) {
-            // Check for 'P' key press to access the pause menu
+            // CHECKS FOR USER INPUT OF "P".
             if (!Battle.inCombat && PauseMenu.isPauseMenuRequested(scanner)) {
                 pauseMenu.showMenu();
             }
