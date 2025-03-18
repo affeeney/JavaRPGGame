@@ -10,11 +10,12 @@ public class Main {
         AvailableCharacters availableCharacters = new AvailableCharacters();
         PartyMembers partyMembers = new PartyMembers();
         ItemInventory itemInventory = new ItemInventory();
+        ArmorInventory armorInventory = new ArmorInventory();
         Warrior warrior = new Warrior("Hero", 1);
         Mage mage = new Mage("Mage", 1);
         Scanner scanner = new Scanner(System.in);
         boolean battleEnded = false;
-        PauseMenu pauseMenu = new PauseMenu(itemInventory, partyMembers, availableCharacters);
+        PauseMenu pauseMenu = new PauseMenu(itemInventory, partyMembers, availableCharacters, armorInventory);
 
         
         

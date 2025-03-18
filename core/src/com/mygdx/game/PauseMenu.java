@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
 public class PauseMenu {
 
     private ItemInventory itemInventory;
@@ -11,13 +12,16 @@ public class PauseMenu {
     private Warrior warrior;
     private Mage mage;
     private Knight knight;
+    private Armor gear;
+    private ArmorInventory armor;
     
     private Scanner scanner = new Scanner(System.in);
 
-    public PauseMenu(ItemInventory itemInventory, PartyMembers party, AvailableCharacters availableChars) {
+    public PauseMenu(ItemInventory itemInventory, PartyMembers party, AvailableCharacters availableChars, ArmorInventory armor) {
         this.itemInventory = itemInventory;
         this.party = party;
         this.availableChars = availableChars;
+        this.armor = armor;
     }
 
     
@@ -43,7 +47,7 @@ public class PauseMenu {
                 adjustPartyMembers(party, availableChars);
                 
             case 3:
-                equipGear(party);
+                equipArmor(null, party, gear, armor);
                 
             case 4:
 
@@ -199,7 +203,49 @@ public class PauseMenu {
             }          
         }                          
     }
-    public void equipGear(PartyMembers party) {
+    public void equipArmor(MainCharacter mainCharacter, PartyMembers party, Armor gear, ArmorInventory armor) {
+        
+        System.out.println("1. Equip");
+        System.out.println("2. Remove");
+        System.out.println("0. Back to Menu");
+
+        int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    armor.displayArmorInventory();
+                    if (armor.isEmpty()) {
+                        break;
+                    }
+                    else {
+                        System.out.println("Choose piece ");
+                        int selectedItemIndex = scanner.nextInt();
+                        if (selectedItemIndex >= 1 && selectedItemIndex <= armor.getArmorInventorySize()) {
+                            Armor selectedItem = armor.getArmorPiece(selectedItemIndex - 1);
+                            System.out.println("Choose character to equip. ");
+                            party.displayPartyMembers();
+                            int selectedCharacterIndex = scanner.nextInt();
+                            if (selectedCharacterIndex >= 1 && selectedCharacterIndex <= party.getPartyMembersSize()) {
+                                MainCharacter selectedCharacter = party.getPartyMember(selectedCharacterIndex - 1);
+                                selectedItem.equipArmorPiece(selectedCharacter);
+                            } 
+                            else {
+                                System.out.print("Invalid selection. ");                               
+                            }        
+                        }    
+                        else {
+                            System.out.print("Invalid selection ");
+                        }   
+                    }
+                    break;
+                case 2:
+                    
+                        
+
+
+
+            }
+        
     }       
 }
 
